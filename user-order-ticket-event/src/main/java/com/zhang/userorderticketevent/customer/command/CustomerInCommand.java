@@ -1,17 +1,17 @@
-package com.zhang.axon.query;
+package com.zhang.userorderticketevent.customer.command;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.axonframework.commandhandling.TargetAggregateIdentifier;
 
-@Entity(name = "account")
-public class AccountEntry {
+public class CustomerInCommand {
 
-    @Id
+    @TargetAggregateIdentifier
     private String id;
-
-    @Column
     private Integer amount;
+
+    public CustomerInCommand(String id,  Integer amount) {
+        this.id = id;
+        this.amount = amount;
+    }
 
     public String getId() {
         return id;

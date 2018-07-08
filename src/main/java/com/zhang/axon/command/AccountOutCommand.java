@@ -1,7 +1,10 @@
 package com.zhang.axon.command;
 
+import org.axonframework.commandhandling.TargetAggregateIdentifier;
+
 public class AccountOutCommand {
 
+    @TargetAggregateIdentifier
     private String id;
     private Integer amount;
 

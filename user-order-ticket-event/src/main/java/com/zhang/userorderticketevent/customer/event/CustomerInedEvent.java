@@ -1,17 +1,14 @@
-package com.zhang.axon.query;
+package com.zhang.userorderticketevent.customer.event;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+public class CustomerInedEvent {
 
-@Entity(name = "account")
-public class AccountEntry {
-
-    @Id
     private String id;
-
-    @Column
     private Integer amount;
+
+    public CustomerInedEvent(String id,  Integer amount) {
+        this.id = id;
+        this.amount = amount;
+    }
 
     public String getId() {
         return id;

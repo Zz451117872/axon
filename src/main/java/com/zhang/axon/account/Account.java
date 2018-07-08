@@ -20,14 +20,12 @@ import static org.axonframework.commandhandling.model.AggregateLifecycle.apply;
 @Aggregate
 public class Account {
 
-    @TargetAggregateIdentifier
+    @AggregateIdentifier
     private String id;
 
     private Integer amount;
 
-    public Account(String id, Integer amount) {
-        this.id = id;
-        this.amount = amount;
+    public Account() {
     }
 
     @CommandHandler
