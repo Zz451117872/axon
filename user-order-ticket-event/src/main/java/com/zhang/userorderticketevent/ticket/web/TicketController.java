@@ -28,6 +28,7 @@ public class TicketController {
     @RequestMapping("/add")
     @ResponseBody
     public String add( String name , Integer amount ){
+        System.out.println( "xxxxxx");
         String id = UUID.randomUUID().toString();
         TicketCreateCommand command = new TicketCreateCommand( id , name , amount );
         commandGateway.send( command );

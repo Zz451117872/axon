@@ -7,10 +7,20 @@ public class TicketUnlockCommand {
     @TargetAggregateIdentifier
     private String id;
     private String locker;
+    private String oid;
 
-    public TicketUnlockCommand(String id, String locker) {
+    public TicketUnlockCommand(String id, String locker , String oid) {
         this.id = id;
         this.locker = locker;
+        this.oid = oid;
+    }
+
+    public String getOid() {
+        return oid;
+    }
+
+    public void setOid(String oid) {
+        this.oid = oid;
     }
 
     public String getId() {

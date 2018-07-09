@@ -30,6 +30,7 @@ import static org.axonframework.commandhandling.GenericCommandMessage.asCommandM
 public class OrderManageSaga {
 
     Logger log = LoggerFactory.getLogger( OrderManageSaga.class );
+
     private String oid;
     private String cid;
     private String tid;
@@ -63,13 +64,13 @@ public class OrderManageSaga {
 
     @SagaEventHandler( associationProperty = "oid")
     public void on(OrderPayedEvent event){
-        TicketMoveCommand command = new TicketMoveCommand( tid , cid );
+        TicketMoveCommand command = new TicketMoveCommand( tid , cid ,oid );
         commandBus.dispatch( asCommandMessage( command) , LoggingCallback.INSTANCE );
     }
 
     @SagaEventHandler( associationProperty = "oid")
     public void on(OrderPayFaildEvent event){
-        TicketUnlockCommand command = new TicketUnlockCommand( tid ,cid );
+        TicketUnlockCommand command = new TicketUnlockCommand( tid ,cid ,oid );
         commandBus.dispatch( asCommandMessage( command) , LoggingCallback.INSTANCE );
 
         OrderFaildCommand orderFaildCommand = new OrderFaildCommand( oid ,"pay faild");
@@ -83,13 +84,13 @@ public class OrderManageSaga {
     }
 
     @EndSaga
-    @SagaEventHandler( associationProperty = "oid")
+    @SagaEventHandler( associationProperty = "id")
     public void end(OrderFaildedEvent event ){
         log.debug( "order faild :", event.getId());
     }
 
     @EndSaga
-    @SagaEventHandler( associationProperty = "oid")
+    @SagaEventHandler( associationProperty = "id")
     public void end(OrderFinishedEvent event ){
         log.debug( "order finish :", event.getId());
     }

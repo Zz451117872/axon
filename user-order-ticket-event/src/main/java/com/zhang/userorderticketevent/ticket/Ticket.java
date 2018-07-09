@@ -44,7 +44,7 @@ public class Ticket {
         }
         if( this.locker != null  ){
             if( this.locker != command.getLocker() ){
-                apply ( new TicketLockFailedEvent( command.getId() , command.getLocker() ));
+                apply ( new TicketLockFailedEvent( command.getId() , command.getLocker() ,command.getOid()));
             }else{
                 throw new RuntimeException("票已被自己锁定");
             }
@@ -55,12 +55,12 @@ public class Ticket {
 
     @CommandHandler
     public void handler(TicketMoveCommand command){
-        apply( new TicketMovedEvent( command.getId() , command.getOwner() ));
+        apply( new TicketMovedEvent( command.getId() , command.getOwner() , command.getOid() ));
     }
 
     @CommandHandler
     public void handler(TicketUnlockCommand command){
-        apply ( new TicketUnlockedEvent( command.getId() , command.getLocker() ));
+        apply ( new TicketUnlockedEvent( command.getId() , command.getLocker() ,command.getOid() ));
     }
 
     @EventSourcingHandler

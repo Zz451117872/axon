@@ -10,10 +10,20 @@ public class TicketMoveCommand {
     @TargetAggregateIdentifier
     private String id;
     private String owner;
+    private String oid;
 
-    public TicketMoveCommand(String id, String owner) {
+    public TicketMoveCommand(String id, String owner , String oid) {
         this.id = id;
         this.owner = owner;
+        this.oid = oid;
+    }
+
+    public String getOid() {
+        return oid;
+    }
+
+    public void setOid(String oid) {
+        this.oid = oid;
     }
 
     public String getId() {
