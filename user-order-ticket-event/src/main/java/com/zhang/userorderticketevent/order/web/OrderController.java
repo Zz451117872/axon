@@ -27,9 +27,9 @@ public class OrderController {
 
     @RequestMapping("/add")
     @ResponseBody
-    public String createOrder( String cid, String tid){
+    public String createOrder( String cid, String tid ,Integer amount){
         String id = UUID.randomUUID().toString();
-        OrderCreateCommand command = new OrderCreateCommand( id, cid , tid);
+        OrderCreateCommand command = new OrderCreateCommand( id, cid , tid ,amount);
         commandGateway.send( command );
         return id;
     }

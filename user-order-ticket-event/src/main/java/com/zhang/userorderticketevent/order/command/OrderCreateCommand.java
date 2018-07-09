@@ -11,11 +11,21 @@ public class OrderCreateCommand {
     private String id;
     private String cid;
     private String tid;
+    private Integer amount;
 
-    public OrderCreateCommand(String id, String cid, String tid) {
+    public OrderCreateCommand(String id, String cid, String tid , Integer amount) {
         this.id = id;
         this.cid = cid;
         this.tid = tid;
+        this.amount = amount;
+    }
+
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
     }
 
     public String getId() {

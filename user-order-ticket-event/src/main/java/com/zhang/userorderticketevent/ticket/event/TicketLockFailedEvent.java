@@ -1,26 +1,16 @@
 package com.zhang.userorderticketevent.ticket.event;
 
-/**
- * Created by aa on 2018/7/9.
- */
-public class TicketLockedEvent {
+import org.axonframework.commandhandling.TargetAggregateIdentifier;
 
+public class TicketLockFailedEvent {
+
+    @TargetAggregateIdentifier
     private String id;
     private String locker;
-    private String oid;
 
-    public TicketLockedEvent(String id, String locker , String oid ) {
+    public TicketLockFailedEvent(String id, String locker) {
         this.id = id;
         this.locker = locker;
-        this.oid = oid;
-    }
-
-    public String getOid() {
-        return oid;
-    }
-
-    public void setOid(String oid) {
-        this.oid = oid;
     }
 
     public String getId() {

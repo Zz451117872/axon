@@ -31,7 +31,7 @@ public class Order {
 
     @CommandHandler
     public Order(OrderCreateCommand command){
-        apply( new OrderCreatedEvent( command.getId() , command.getCid() , command.getTid() ));
+        apply( new OrderCreatedEvent( command.getId() , command.getCid() , command.getTid() ,command.getAmount()));
     }
 
     @EventSourcingHandler

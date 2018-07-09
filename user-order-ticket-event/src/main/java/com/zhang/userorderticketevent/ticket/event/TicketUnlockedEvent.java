@@ -1,26 +1,13 @@
 package com.zhang.userorderticketevent.ticket.event;
 
-/**
- * Created by aa on 2018/7/9.
- */
-public class TicketLockedEvent {
+public class TicketUnlockedEvent {
 
     private String id;
     private String locker;
-    private String oid;
 
-    public TicketLockedEvent(String id, String locker , String oid ) {
+    public TicketUnlockedEvent(String id, String locker) {
         this.id = id;
         this.locker = locker;
-        this.oid = oid;
-    }
-
-    public String getOid() {
-        return oid;
-    }
-
-    public void setOid(String oid) {
-        this.oid = oid;
     }
 
     public String getId() {
